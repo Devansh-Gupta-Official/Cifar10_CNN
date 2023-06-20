@@ -57,5 +57,25 @@ X_test=X_test/255
 
 Input_shape=X_train.shape[1:]    #gives output (32,32,3)
 
+#BUILIDNG THE MODEL
+cnn = tf.keras.models.Sequential()
+cnn.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3), activation='relu', input_shape=Input_shape))
+cnn.add(tf.keras.layers.Conv2D(filters=32, kernel_size=(3,3), activation='relu'))
+cnn.add(tf.keras.layers.MaxPool2D(pool_size=2, strides=2))
+cnn.add(tf.keras.layers.Dropout(0.3))   #to remove neurons and perform regularisation
+
+cnn.add(tf.keras.layers.Conv2D(filters=64, kernel_size=(3,3), activation='relu'))
+cnn.add(tf.keras.layers.Conv2D(filters=64, kernel_size=(3,3), activation='relu'))
+cnn.add(tf.keras.layers.MaxPool2D(pool_size=2, strides=2))
+cnn.add(tf.keras.layers.Dropout(0.2))   #to remove neurons and perform regularisation
+
+cnn.add(tf.keras.layers.Flatten())
+cnn.add(tf.keras.layers.Dense(units=512, activation='relu'))
+cnn.add(tf.keras.layers.Dense(units=512, activation='relu'))
+cnn.add(tf.keras.layers.Dense(units=10, activation='softmax'))  #10 units as we need 10 outputs; softmax activation fn is used as our output has to be only 0s or 1s.
+
+
+
+
 
 
