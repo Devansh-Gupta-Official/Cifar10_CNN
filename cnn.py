@@ -75,6 +75,14 @@ cnn.add(tf.keras.layers.Dense(units=512, activation='relu'))
 cnn.add(tf.keras.layers.Dense(units=10, activation='softmax'))  #10 units as we need 10 outputs; softmax activation fn is used as our output has to be only 0s or 1s.
 
 
+#TRAINING THE CNN
+cnn.compile(optimizer = keras.optimizers.rmsprop(lr=0.001), loss = 'categorical_crossentropy', metrics = ['accuracy'])
+
+#capture the progression of the model as it is being trained
+cnn.fit(X_train,y_train, batch_size=32, epochs = 2, shuffle=True)  #shuffle introduces randomness which is impotant to stop the model from overfitting
+
+
+
 
 
 
