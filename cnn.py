@@ -79,9 +79,37 @@ cnn.add(tf.keras.layers.Dense(units=10, activation='softmax'))  #10 units as we 
 cnn.compile(optimizer = keras.optimizers.rmsprop(lr=0.001), loss = 'categorical_crossentropy', metrics = ['accuracy'])
 
 #capture the progression of the model as it is being trained
-cnn.fit(X_train,y_train, batch_size=32, epochs = 2, shuffle=True)  #shuffle introduces randomness which is impotant to stop the model from overfitting
+cnn.fit(X_train,y_train, batch_size=32, epochs = 2, shuffle=True)  #shuffle introduces randomness which is impoRtant to stop the model from overfitting
 
 
+#EVALUATING OUR MODEL
+print('Test Accuracy: {}'.format(cnn.evaluate(X_test,y_test)[1]))   #1 as evaluation comes back in 2 parts and we need the second part
+
+predicted_classes = cnn.predict_classes(X_test)
+print(predicted_classes)
+
+#comparing predicted value to y_test
+y_test=y_test.argmax(1)   #returns original y_test which has not been converted to categorical data
+
+
+#making a matrix to compare y_test and predicted_classes
+L=7
+W=7
+fig,axes=plt.subplots(L,W,figsize=(12,12))
+axes=axes.ravel()
+for i in np.arange(0,L*W):
+    axes[i].imshow(X_test[i])
+    axes[i].set_title('Prediction={}\n True={}'.format(predicted_classes[i],y_test[i]))
+    axes[i].axis('off')
+plt.subplots_adjust(wspace=1)
+
+#making the confusion matrix
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+cm=confusion_matrix(y_test,predicted_classes)
+print(cm)
+plt.figure(figsize=(10,10))
+sns.heatmap(cm,annot=True)    #presents confusion matrix in a better way
 
 
 
