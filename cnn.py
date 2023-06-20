@@ -3,6 +3,8 @@ import numpy as np
 import tensorflow as tf
 import seaborn
 import matplotlib.pyplot as plt
+import tensorflow as tf
+from keras.preprocessing.image import ImageDataGenerator
 
 # Label	Description
 # 0	airplane
@@ -22,8 +24,8 @@ from keras.datasets import cifar10
 print(X_train.shape)   #50000 samples and each image has 32x32 dimensions and rgb or 3 channels
 print(y_train.shape)   #50000 samples and each sample has 1 corresponding claasification like horse, cat, etc...
 
-print(plt.imshow(X_train[1000]))   #to print the 1000th image in our X_train
-print(y_train[1000])    #to print label of our 1000th image; 9 is truck
+# print(plt.imshow(X_train[1000]))   #to print the 1000th image in our X_train
+# print(y_train[1000])    #to print label of our 1000th image; 9 is truck
 
 
 # #VISUALISING THE DATASET
@@ -39,6 +41,21 @@ print(y_train[1000])    #to print label of our 1000th image; 9 is truck
 #     axes[i].set_title(y_train[i])   #displays the label of that image as the title of corresponding image
 #     axes[i].axis('off')   #removes axes numbering
 # plt.subplots_adjust(hspace=0.4)
+
+
+#DATA PREPARATION
+X_train=X_train.astype('float32')
+X_test=X_test.astype('float32')
+
+import keras
+y_train=keras.utils.to_categorical(y_train, 10)   #to convert y_train and test values to categorical data; 10 is used as we have 10 categories
+y_test=keras.utils.to_categorical(y_test, 10)
+
+#perform data normalization
+X_train=X_train/255    #this is why we convert X_train and X_test to float as this allows decimal values to be contained
+X_test=X_test/255
+
+Input_shape=X_train.shape[1:]    #gives output (32,32,3)
 
 
 
