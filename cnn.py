@@ -112,6 +112,13 @@ plt.figure(figsize=(10,10))
 sns.heatmap(cm,annot=True)    #presents confusion matrix in a better way
 
 
+#SAVING THE MODEL
+import os
+directory = os.path.join(os.getcwd(),'saved model')    #to get current working directory
+if not os.path.isdir(directory):        #if there is no directory called 'saved model'
+    os.makedirs(directory)
+model_path = os.path.join(directory,'cifar10_cnn.h5')
+cnn.save(model_path)
 
 
 
