@@ -76,7 +76,7 @@ cnn.add(tf.keras.layers.Dense(units=10, activation='softmax'))  #10 units as we 
 
 
 #TRAINING THE CNN
-cnn.compile(optimizer = keras.optimizers.rmsprop(lr=0.001), loss = 'categorical_crossentropy', metrics = ['accuracy'])
+cnn.compile(optimizer = keras.optimizers.RMSprop(lr=0.001), loss = 'categorical_crossentropy', metrics = ['accuracy'])
 
 #capture the progression of the model as it is being trained
 cnn.fit(X_train,y_train, batch_size=32, epochs = 2, shuffle=True)  #shuffle introduces randomness which is impoRtant to stop the model from overfitting
@@ -85,7 +85,7 @@ cnn.fit(X_train,y_train, batch_size=32, epochs = 2, shuffle=True)  #shuffle intr
 #EVALUATING OUR MODEL
 print('Test Accuracy: {}'.format(cnn.evaluate(X_test,y_test)[1]))   #1 as evaluation comes back in 2 parts and we need the second part
 
-predicted_classes = cnn.predict_classes(X_test)
+predicted_classes = np.argmax(cnn.predict(X_test), axis=-1)
 print(predicted_classes)
 
 #comparing predicted value to y_test
