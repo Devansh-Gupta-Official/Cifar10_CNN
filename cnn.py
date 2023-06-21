@@ -121,4 +121,3 @@ model_path = os.path.join(directory,'cifar10_cnn.h5')
 cnn.save(model_path)
 
 
-
