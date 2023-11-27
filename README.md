@@ -4,7 +4,7 @@ This repository contains Python scripts for image classification using Convoluti
 
 ## **Files**
 ### **File 1 - cnn.py**
-- This Jupyter Notebook file focuses on:
+- This ile focuses on:
 - Loading and visualizing the CIFAR-10 dataset
 - Data preparation including normalization and categorical conversion
 - Building a CNN model using TensorFlow/Keras
@@ -14,7 +14,7 @@ This repository contains Python scripts for image classification using Convoluti
 - Saving the trained model
 
 ### **File 2 - augumented_cnn.py**
-This notebook covers:
+This covers:
 
 - Loading CIFAR-10 dataset
 - Implementing data augmentation using ImageDataGenerator in Keras
@@ -25,9 +25,9 @@ This notebook covers:
    ```
    git clone https://github.com/Devansh-Gupta-Official/cifar10_CNN.git
    ```
-2. Open and run the Jupyter Notebooks in your preferred environment (Jupyter Notebook, Google Colab, etc.).
-3. File 1 (CIFAR10_CNN_Training.ipynb) demonstrates the CNN model training process on the CIFAR-10 dataset and provides insights into its performance.
-4. File 2 (Image_Augmentation.ipynb) showcases data augmentation techniques using TensorFlow's ImageDataGenerator, providing visual examples of augmented images.
+2. Open and run the file in your preferred environment (Jupyter Notebook, Google Colab, etc.).
+3. File 1 (cnn.py) demonstrates the CNN model training process on the CIFAR-10 dataset and provides insights into its performance.
+4. File 2 (augumented_cnn.py) showcases data augmentation techniques using TensorFlow's ImageDataGenerator, providing visual examples of augmented images.
 
 ## **Requirements**
 - Python 3
