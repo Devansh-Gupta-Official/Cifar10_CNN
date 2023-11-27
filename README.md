@@ -4,7 +4,7 @@ This repository contains Python scripts for image classification using Convoluti
 
 ## **Files**
 ### **File 1 - cnn.py**
-This ile focuses on:
+This file focuses on:
 - Loading and visualizing the CIFAR-10 dataset
 - Data preparation including normalization and categorical conversion
 - Building a CNN model using TensorFlow/Keras
