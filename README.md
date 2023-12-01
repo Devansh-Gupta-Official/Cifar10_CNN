@@ -38,7 +38,7 @@ x_train, x_test = x_train / 255.0, x_test / 255.0
 ## **Usage**
 1. Clone the repository to your local environment:
    ```
-   git clone https://github.com/Devansh-Gupta-Official/cifar10_CNN.git
+   git clone https://github.com/Devansh-Gupta-Official/cifar10-CNN.git
    ```
 2. Open and run the file in your preferred environment (Jupyter Notebook, Google Colab, etc.).
 3. File 1 (cnn.py) demonstrates the CNN model training process on the CIFAR-10 dataset and provides insights into its performance.
